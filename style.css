@@ -1,0 +1,43 @@
+
+body{
+    background-color: rgb(11, 44, 255);
+}
+.estrela {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /*esconde tudo que sai da tela*/
+    display: flex;
+}
+
+.emoji {
+    width: 5em;
+    height: 5em;
+
+    background-image: url("https://images.vexels.com/media/users/3/128763/isolated/preview/0da6478b8aa1c63ff08a8135ce0e73df-floco-de-neve-congelado-cold-svg.png"); /* Define a imagem do floco de neve*/
+    
+    background-size: contain; /*Faz a imagem caber inteira dentro do elemento*/
+
+    background-position: center; /*Centraliza a imagem dentro do quadrado*/
+
+    background-repeat: no-repeat; /*Evita que a imagem fique se repetindo*/
+
+    animation: animar linear infinite;/* animar -> nome da animação (@keyframes animar)
+                                         linear -> velocidade constante
+                                         infinite -> animação nunca para*/
+
+    animation-duration: calc(150s / var(--i));/*Define o tempo da animação
+                                                var(--i) -> variável definida no HTML, Quanto maior o --i, mais rápida a queda
+                                                calc() -> permite fazer conta no CSS
+                                                Isso cria flocos caindo em velocidades diferentes.*/
+     
+    filter: invert(1); /*Deixa o floco branco, mesmo se a imagem for preta.*/
+}
+@keyframes animar{
+
+    0%{
+        transform: translateY(-100vh) scale(1.5) rotate(0deg);
+    }
+        100%{
+        transform: translateY(110vh) scale(0) rotate(360deg);
+    }
+}
